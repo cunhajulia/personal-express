@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personal Express Complete</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Community Task Rabbit</h1>
+  <h2>Please post a job you need done on/around your property. Helpful neighbors: please checkmark it once complete. Thank you!</h2>
+
+
+  <h3>Jobs:</h3>
+  <ul class="jobs">
+  <% for(var i=0; i<jobs.length; i++) {%>
+    <li class="message">
+      <span><%= jobs[i].name %></span> 
+      <span><%= jobs[i].msg %></span>
+      <span><%= jobs[i].completed %></span>
+      <span><i class="fa fa-solid fa-check" aria-hidden="true"></i></span>
+      <!-- <span><%= jobs[i].thumbDown %></span>
+      <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span> -->
+      <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+    </li>
+  <% } %>
+  </ul>
+
+  <h2>Add a job:</h2>
+
+  <form action="/jobs" method="POST">
+    <input type="text" placeholder="job poster name" name="name">
+    <input type="text" placeholder="job post" name="msg">
+    <button type="submit">Submit</button>
+  </form>
+
+  <script src="main.js"></script>
+
+</body>
+</html>
